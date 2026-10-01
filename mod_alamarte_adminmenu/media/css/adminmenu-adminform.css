@@ -1,0 +1,380 @@
+/*
+ * Alamarte Admin Menu administrator form
+ * Version: 1.4.1
+ * GNU General Public License version 3 or later
+ * https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+.alm-adminmenu-custom-links-subform .subform-repeatable,
+.alm-adminmenu-custom-links-subform .subform-repeatable-wrapper,
+.alm-adminmenu-custom-links-subform .subform-repeatable-container {
+    max-height: min(70vh, 920px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+.alm-adminmenu-url-control {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 2.5rem;
+    gap: .4rem;
+    align-items: stretch;
+}
+
+.alm-adminmenu-url-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(2.25rem + 2px);
+    color: var(--body-color, #495057);
+    background: var(--body-bg, #fff);
+    border: 1px solid var(--template-bg-dark-20, #adb5bd);
+    border-radius: .25rem;
+}
+
+.alm-adminmenu-url-indicator[hidden],
+.alm-adminmenu-url-feedback[hidden] {
+    display: none !important;
+}
+
+.alm-adminmenu-url-validation.is-pending .alm-adminmenu-url-indicator {
+    color: var(--warning, #ad6200);
+    border-color: currentColor;
+}
+
+.alm-adminmenu-url-validation.is-valid .alm-adminmenu-url-indicator {
+    color: var(--success, #198754);
+    border-color: currentColor;
+}
+
+.alm-adminmenu-url-validation.is-invalid .alm-adminmenu-url-indicator {
+    color: var(--danger, #dc3545);
+    border-color: currentColor;
+}
+
+.alm-adminmenu-url-validation.is-unavailable .alm-adminmenu-url-indicator {
+    color: var(--warning, #ad6200);
+    border-color: currentColor;
+}
+
+.alm-adminmenu-url-feedback {
+    margin-top: .35rem;
+    padding: .45rem .6rem;
+    border: 1px solid currentColor;
+    border-radius: .25rem;
+    font-size: .875rem;
+    line-height: 1.35;
+}
+
+.alm-adminmenu-url-validation.is-valid .alm-adminmenu-url-feedback {
+    color: var(--success, #198754);
+    background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.alm-adminmenu-url-validation.is-invalid .alm-adminmenu-url-feedback {
+    color: var(--danger, #dc3545);
+    background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.alm-adminmenu-url-validation.is-pending .alm-adminmenu-url-feedback,
+.alm-adminmenu-url-validation.is-unavailable .alm-adminmenu-url-feedback {
+    color: var(--warning, #7a4700);
+    background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.alm-adminmenu-custom-row--disabled {
+    opacity: .78;
+}
+
+@media (max-width: 768px) {
+    .alm-adminmenu-custom-links-subform .subform-repeatable,
+    .alm-adminmenu-custom-links-subform .subform-repeatable-wrapper,
+    .alm-adminmenu-custom-links-subform .subform-repeatable-container {
+        max-height: 65vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .alm-adminmenu-url-indicator .fa-spin {
+        animation: none !important;
+    }
+}
+
+
+.alm-adminmenu-source-radio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.25rem;
+    align-items: center;
+}
+
+.alm-adminmenu-source-radio .form-check {
+    margin: 0;
+}
+
+
+.alm-adminmenu-links-sections {
+    display: grid;
+    gap: 1.75rem;
+    width: 100%;
+}
+
+.alm-adminmenu-links-section {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.alm-adminmenu-links-section-heading,
+.alm-adminmenu-links-group-heading {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff !important;
+    background: #252671;
+    border: 1px solid #252671;
+}
+
+.alm-adminmenu-links-section-heading {
+    margin: 0;
+    padding: .85rem 1rem;
+    border-radius: .5rem;
+}
+
+.alm-adminmenu-links-section-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+}
+
+.alm-adminmenu-links-section-toggle.control-group,
+.alm-adminmenu-links-section-toggle.mb-3,
+.alm-adminmenu-links-section-toggle.form-group {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: .75rem 1rem;
+    background: var(--body-bg, #fff);
+    border: 1px solid var(--border-color, #dfe3e7);
+    border-radius: .5rem;
+}
+
+.alm-adminmenu-links-section-toggle > .control-label,
+.alm-adminmenu-links-section-toggle > .form-label,
+.alm-adminmenu-links-section-toggle > label {
+    grid-column: 1;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+.alm-adminmenu-links-section-toggle > .controls,
+.alm-adminmenu-links-section-toggle > .control-wrapper {
+    grid-column: 2;
+    min-width: max-content;
+    margin: 0 !important;
+}
+
+.alm-adminmenu-links-reset.control-group,
+.alm-adminmenu-links-reset.mb-3,
+.alm-adminmenu-links-reset.form-group {
+    display: block !important;
+    width: 100%;
+    margin: 0 0 1.25rem;
+    padding: 1rem;
+    background: var(--body-bg, #fff);
+    border: 1px solid var(--border-color, #dfe3e7);
+    border-radius: .5rem;
+}
+
+.alm-adminmenu-links-reset > .control-label,
+.alm-adminmenu-links-reset > .form-label,
+.alm-adminmenu-links-reset > label {
+    display: none !important;
+}
+
+.alm-adminmenu-links-reset > .controls,
+.alm-adminmenu-links-reset > .control-wrapper {
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
+}
+
+.alm-adminmenu-reset-control .form-text {
+    margin: .5rem 0 0;
+}
+
+.alm-adminmenu-links-section-column {
+    display: grid;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.alm-adminmenu-links-group {
+    overflow: hidden;
+    background: var(--body-bg, #fff);
+    border: 1px solid var(--border-color, #dfe3e7);
+    border-radius: .5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+}
+
+.alm-adminmenu-links-group-heading {
+    margin: 0;
+    padding: .65rem .85rem;
+    border-width: 0 0 1px;
+    border-radius: 0;
+}
+
+.alm-adminmenu-links-group-body {
+    padding: .35rem .85rem .55rem;
+}
+
+.alm-adminmenu-links-group-body > .control-group,
+.alm-adminmenu-links-group-body > .mb-3,
+.alm-adminmenu-links-group-body > .form-group {
+    margin: 0;
+    padding: .65rem 0;
+    border-bottom: 1px solid rgba(37, 38, 113, .12);
+}
+
+.alm-adminmenu-links-group-body > :last-child {
+    border-bottom: 0;
+}
+
+/* Compact checkboxes stay aligned at the left edge of their own column. */
+.alm-adminmenu-links-group-item.control-group,
+.alm-adminmenu-links-group-item.mb-3,
+.alm-adminmenu-links-group-item.form-group {
+    display: grid !important;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    gap: .65rem;
+    align-items: center;
+}
+
+.alm-adminmenu-links-group-item > .controls,
+.alm-adminmenu-links-group-item > .control-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    min-width: 0;
+    margin: 0 !important;
+}
+
+.alm-adminmenu-link-checkbox-control {
+    display: flex;
+    align-items: center;
+    min-height: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.alm-adminmenu-link-checkbox {
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #252671;
+}
+
+.alm-adminmenu-links-group-item > .control-label,
+.alm-adminmenu-links-group-item > .form-label,
+.alm-adminmenu-links-group-item > label {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: stretch;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+    margin: 0 !important;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.alm-adminmenu-links-group-item > .control-label > label,
+.alm-adminmenu-links-group-item > .form-label,
+.alm-adminmenu-links-group-item > label {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+    margin: 0 !important;
+    box-sizing: border-box;
+    white-space: normal;
+}
+
+.alm-adminmenu-links-section-heading *,
+.alm-adminmenu-links-group-heading * {
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+.alm-adminmenu-links-section-heading label,
+.alm-adminmenu-links-section-heading .control-label,
+.alm-adminmenu-links-section-heading .form-label,
+.alm-adminmenu-links-group-heading label,
+.alm-adminmenu-links-group-heading .control-label,
+.alm-adminmenu-links-group-heading .form-label {
+    margin: 0;
+    font-weight: 700;
+}
+
+.alm-adminmenu-links-section-heading label,
+.alm-adminmenu-links-section-heading .control-label,
+.alm-adminmenu-links-section-heading .form-label {
+    font-size: 1.05rem;
+}
+
+.alm-adminmenu-links-group-heading label,
+.alm-adminmenu-links-group-heading .control-label,
+.alm-adminmenu-links-group-heading .form-label {
+    font-size: .95rem;
+}
+
+.alm-adminmenu-links-section-heading .form-text,
+.alm-adminmenu-links-section-heading .form-control-static,
+.alm-adminmenu-links-section-heading .note,
+.alm-adminmenu-links-group-heading .form-text,
+.alm-adminmenu-links-group-heading .form-control-static,
+.alm-adminmenu-links-group-heading .note {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.alm-adminmenu-links-section-heading svg,
+.alm-adminmenu-links-group-heading svg {
+    color: #fff !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+.alm-adminmenu-links-section-heading [class^="icon-"]::before,
+.alm-adminmenu-links-section-heading [class*=" icon-"]::before,
+.alm-adminmenu-links-group-heading [class^="icon-"]::before,
+.alm-adminmenu-links-group-heading [class*=" icon-"]::before {
+    color: #fff !important;
+}
+
+@media (max-width: 960px) {
+    .alm-adminmenu-links-section-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+
+/* Core: Pro-only controls remain visible for feature discovery but cannot be edited. */
+.alm-adminmenu-pro-only {
+  opacity: .72;
+}
+
+.alm-adminmenu-pro-only .form-text,
+.alm-adminmenu-pro-only .form-label,
+.alm-adminmenu-pro-only .control-label {
+  opacity: 1;
+}

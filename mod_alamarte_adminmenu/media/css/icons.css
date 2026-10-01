@@ -1,0 +1,17 @@
+/*
+ * Alamarte Admin Menu icon helpers
+ * Version: 1.4.1
+ * GNU General Public License version 3 or later
+ */
+.alm-fa-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    line-height: 1;
+}
+.alm-fa-icon.is-none::before {
+    content: "—";
+    font-family: inherit;
+    font-weight: 400;
+}

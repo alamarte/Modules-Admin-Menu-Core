@@ -1,0 +1,519 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<changelogs>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.4.1</version>
+        <change>
+            <item>Synchronized the Core public release with Alamarte Admin Menu Pro 1.4.1.</item>
+            <item>Core has no functional behaviour changes in this release; its existing restrictions, saved-parameter preservation, themes, links, ACL validation and Joomla! Administrator visual preset remain unchanged.</item>
+            <item>Refreshed version metadata, Web Asset Manager revision, bilingual installer information, documentation, update-server data and integrity files for release 1.4.1.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.4.0</version>
+        <addition>
+            <item>Added contextual end-user explanations for Auto, Light and Dark below the Default Theme selector.</item>
+            <item>Added contextual Panel Width explanations for Compact, Standard and Wide, plus an in-context Pro notice when Custom is selected.</item>
+            <item>Added a permanent Styles information box explaining that Core uses the Joomla! Administrator visual preset and that additional presets and custom colours are available in Pro.</item>
+        </addition>
+        <fix>
+            <item>Integrated the administrator trigger with Joomla's native header-item pill so the menu control no longer draws a conflicting nested pill.</item>
+            <item>Changed the Dashboard/Home action to the explicit Font Awesome fas fa-home icon and gave it a distinct circular action surface with restrained hover and keyboard-focus feedback.</item>
+            <item>Rebuilt the ES/EN language selector as a clean segmented control with one outer border and a single internal divider.</item>
+            <item>Aligned the Joomla visual preset with the validated administrator light and dark appearances while keeping Auto synchronized with Joomla's active light/dark mode.</item>
+            <item>Refreshed the internal Joomla Web Asset Manager cache revision so the final 1.4.0 CSS and JavaScript are requested immediately after installation or update instead of reusing an older cached 1.4.0 asset.</item>
+        </fix>
+        <change>
+            <item>Shortened the Spanish theme option from Automático to Auto while keeping the stored value auto unchanged.</item>
+            <item>Core now presents Pro-only capabilities in context without filling the interface with repeated Pro labels: the custom menu title, advanced link icon/target controls and Visual Preset remain discoverable while Core behaviour stays restricted.</item>
+            <item>Core keeps the Joomla! Administrator visual preset fixed internally, uses Compact, Standard or Wide panel widths, and treats Custom width only as a Pro feature-discovery choice.</item>
+            <item>Core continues to display and use up to three custom links with the standard link icon and current administrator window.</item>
+            <item>Previously saved Pro menu-title, icon, target, visual-preset, colour, custom-width and additional-link values remain preserved for a later Core to Pro round trip and are not applied by Core.</item>
+            <item>The visible module version indicator now identifies Core with a fixed-colour edition pill beside Version: 1.4.0; the Core and Pro badges keep stable contrast in both light and dark administrator themes.</item>
+            <item>Increased spacing and internal padding around the Core edition pill so the version indicator remains compact but no longer appears cramped in either administrator theme.</item>
+            <item>Synchronized version metadata, bilingual interface text, documentation, update-server data and integrity files for release 1.4.0.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.1</version>
+        <addition>
+            <item>Added the Show title switch for the theme selector, shared by Core and Pro.</item>
+        </addition>
+        <fix>
+            <item>Corrected the English Custom Links instruction so the documented scrolling threshold matches the sixth visible link used by the runtime and Spanish interface.</item>
+        </fix>
+        <change>
+            <item>Established the explicit Alamarte Admin Menu Core edition identity while preserving the shared technical element mod_alamarte_adminmenu and namespace Alamarte\Module\AdminMenu.</item>
+            <item>Core displays and uses up to three custom links while preserving additional Pro rows in saved form data.</item>
+            <item>Core custom links use the standard link icon and current administrator window; saved Pro icon and target values remain stored but are ignored by Core.</item>
+            <item>Core uses the standard Admin Menu trigger label while preserving any saved Pro menu-title parameter.</item>
+            <item>Theme selector, theme-title visibility, theme default, language switching, styles, colors, panel widths, section-heading controls, Joomla! Links, ACL filtering and URL validation remain shared with Pro.</item>
+            <item>Moved the Core update and changelog endpoints to /updates/modules/adminmenu/core/.</item>
+            <item>Preserved module instances, titles, positions, publication state, assignments and saved parameters during update.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.1.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.27</version>
+        <fix>
+            <item>Restored custom links that disappeared after the administrator-only URL hardening introduced in 1.3.0.26.</item>
+            <item>Normalized Joomla-routed administrator URLs before the final administrator-route and ACL checks so valid manual and predefined custom links remain visible.</item>
+            <item>Preserved the strict administrator-only security boundary for manual URLs; external origins, frontend routes, HTTP addresses, credentials, fragments, alternate ports, protocol-relative URLs and non-administrator destinations remain rejected.</item>
+        </fix>
+        <change>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.27.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.26</version>
+        <security>
+            <item>Restored the administrator-only boundary for manually entered custom links.</item>
+            <item>Rejected external origins, frontend paths, HTTP addresses, subdomains, alternate ports, credentials, fragments, protocol-relative addresses and non-administrator routes.</item>
+            <item>Required every accepted manual destination to normalize to an internal administrator index.php route before ACL evaluation and rendering.</item>
+        </security>
+        <change>
+            <item>Updated the Custom Links descriptions and examples in English and Spanish so the interface no longer suggests external URLs.</item>
+            <item>Centralized the internal URL validator used by administrator-link identity and selector-deduplication helpers.</item>
+            <item>Escaped every Font Awesome CSS class at the template output boundary as an additional defensive measure.</item>
+            <item>Reviewed all broad exception handlers individually and retained the fail-closed or installer-safe handlers that deliberately avoid exposing database and environment details.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.26.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.25</version>
+        <change>
+            <item>Localized each language-button help text in the target language selected by that button instead of using the currently active administrator language for both buttons.</item>
+            <item>The Spanish button now uses the complete Spanish sentence and the English button the complete English sentence, while keeping the native language name and language tag only once.</item>
+            <item>Loaded the module translation for each configured target language through Joomla's language service, with English as a safe fallback when the module has no translation for that language.</item>
+            <item>Removed browser-side tooltip reconstruction because the complete validated help text is now generated on the server.</item>
+            <item>Kept language tags, session-only switching, routes, parameters, saved values, permissions, AJAX controls, toolbar layout and all menu content unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.25.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.24</version>
+        <fix>
+            <item>Displayed each administrator language with its native self-name in the selector help text instead of the English package name when native locale information is available.</item>
+            <item>Removed the repeated language-tag suffix so the help text now follows the form Español (es-ES).</item>
+        </fix>
+        <change>
+            <item>Used Joomla language metadata first, PHP Intl as a server-side fallback and the browser Intl.DisplayNames API as a progressive enhancement.</item>
+            <item>Kept selector buttons, language tags, session-only switching, routes, parameters, saved values, permissions, AJAX controls and toolbar layout unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.24.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.23</version>
+        <fix>
+            <item>Centred the Backend language selector in the real free space between the complete theme selector and the version number.</item>
+            <item>Prevented the theme controls from wrapping at standard and compact desktop panel widths while preserving the existing responsive arrangement on narrower screens.</item>
+        </fix>
+        <change>
+            <item>Kept the language-switching service, routes, parameters, stored values, defaults, permissions, AJAX controls and all menu content unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.23.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.22</version>
+        <add>
+            <item>Added a dedicated Languages tab with controls to display the Backend language selector, show or hide its title, customise the title text and choose two installed administrator languages.</item>
+            <item>Added a compact two-language selector centred in the module toolbar between the theme controls and the version number.</item>
+            <item>Added a session-only administrator-language change through an authenticated Joomla com_ajax POST request with CSRF protection and validation against the two configured installed languages.</item>
+        </add>
+        <change>
+            <item>The language selector reloads the current administrator page after changing the session language and does not modify Joomla!'s default language or the user's permanent profile settings.</item>
+            <item>Synchronized bilingual descriptions, instructions, version metadata, documentation, update server data and integrity files for release 1.3.0.22.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.21</version>
+        <change>
+            <item>Increased the visible-link threshold from five to six so the standard Content and Administration shortcut sets display without scrolling.</item>
+            <item>Reworded the Restore Default Values guidance without references to previous releases.</item>
+            <item>Changed the reset confirmation to a warning notice with an icon and a bold reminder to save the module.</item>
+            <item>Kept routes, parameters, stored values, defaults, permissions, AJAX validation and menu-building rules unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.21.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.20</version>
+        <change>
+            <item>Made the Joomla! Update hover background use the Link hover background colour configured in the Styles tab.</item>
+            <item>Made the Joomla! Update hover title and icon use the Link title hover colour configured in the Styles tab.</item>
+            <item>Kept the normal luminous orange state, right alignment, routes, parameters, saved values, defaults, permissions, reset behaviour and menu-building rules unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.20.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.19</version>
+        <change>
+            <item>Changed only the Joomla! Update highlight to a brighter orange background with Joomla dark-blue text and icon.</item>
+            <item>Kept the action aligned at the far right and preserved all routes, parameters, saved values, defaults, permissions, reset behaviour and menu-building rules.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.19.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.18</version>
+        <change>
+            <item>Returned Joomla! Update to the far right of the Management and Installation row.</item>
+            <item>Replaced the muted warning treatment with a brighter, higher-contrast orange palette derived from the administrator template colours, including an accessible hover state.</item>
+            <item>Kept routes, parameters, saved values, defaults, permissions, reset behaviour and menu-building rules unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.18.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.17</version>
+        <change>
+            <item>Arranged Management and Installation actions in one row and Maintenance and Updates actions in a second row in the rendered module.</item>
+            <item>Highlighted Joomla! Update with the administrator template warning palette and accessible fallback colours.</item>
+            <item>Kept routes, parameters, saved values, defaults, permissions, reset behaviour and menu-building rules unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.17.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.16</version>
+        <fix>
+            <item>Corrected the two exchanged fields in the Joomla! Extensions configuration: Joomla! Update now appears in Management and Installation, while Update Sites appears in Maintenance and Updates.</item>
+        </fix>
+        <change>
+            <item>Kept all parameter names, routes, saved values, defaults, permissions, reset behaviour and module output unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.16.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.15</version>
+        <fix>
+            <item>Aligned the Joomla! Links configuration groups with the actual Content, Administration and Joomla! Extensions sections rendered by the module.</item>
+            <item>Moved Administrator Modules, Plugins, Site Templates and Administrator Templates back into the Administration configuration section.</item>
+            <item>Restored switchers for the three section-heading controls while retaining checkboxes for individual shortcuts.</item>
+        </fix>
+        <addition>
+            <item>Added a Restore Default Values button that applies the exact enabled shortcut set from public version 1.2.0 and clears shortcuts introduced later.</item>
+        </addition>
+        <change>
+            <item>Made runtime fallbacks and form defaults use the same version 1.2.0 shortcut baseline without overwriting existing saved module parameters.</item>
+            <item>Synchronized bilingual interface text, version metadata, documentation, update server data and integrity files for release 1.3.0.15.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.14</version>
+        <fix>
+            <item>Allowed every Joomla! Links checkbox label to use the full width available after the checkbox instead of inheriting Joomla administrator label width limits.</item>
+        </fix>
+        <change>
+            <item>Kept the three-section, two-column layout and all parameters, routes, defaults, permissions and menu-building logic unchanged.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.14.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.13</version>
+        <change>
+            <item>Replaced the sixty Joomla! Links switchers with compact semantic checkboxes while preserving every parameter name, stored value, default and menu-building rule.</item>
+            <item>Added an explicit hidden zero value for each checkbox so disabling a previously enabled shortcut is saved reliably.</item>
+            <item>Aligned each checkbox at the left edge of its grouped column and retained the existing three-section responsive design.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.13.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.12</version>
+        <change>
+            <item>Redesigned the Joomla! Links tab as three full-width sections for Content Links, Administrator Links and Joomla! Extensions.</item>
+            <item>Arranged the existing groups in two responsive columns inside each section without changing parameters, routes, defaults or link logic.</item>
+            <item>Aligned every link switch at the left edge of its corresponding column.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.12.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.11</version>
+        <addition>
+            <item>Added twelve content shortcuts for field groups, workflows, contacts, news feeds and Smart Search.</item>
+            <item>Added sixteen administration shortcuts for system tools, users, privacy, languages, templates and extension maintenance.</item>
+            <item>Added Language Overrides as an independent administration shortcut.</item>
+        </addition>
+        <change>
+            <item>Reorganised the Joomla! Links configuration into two responsive columns with eight functional groups.</item>
+            <item>Kept every new shortcut disabled by default while preserving existing parameters and defaults.</item>
+            <item>Made Site Templates and Installed Languages use explicit Joomla administrator routes.</item>
+            <item>Synchronized bilingual interface text, version metadata, documentation, update server data and integrity files for release 1.3.0.11.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.10</version>
+        <fix>
+            <item>Forced the three Joomla! Links section headings, labels, help icons and nested elements to use white text on the blue background.</item>
+        </fix>
+        <change>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.10.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.9</version>
+        <addition>
+            <item>Restored the About tab as the final configuration tab with the same localized HTML presentation used by the installer.</item>
+        </addition>
+        <change>
+            <item>Combined Content Links, Administrator Links and Joomla! Extension Links into a single Joomla! Links tab.</item>
+            <item>Separated the three link groups with full-width blue section headings while preserving every existing parameter and default value.</item>
+            <item>Synchronized bilingual labels, version metadata, documentation, update server data and integrity files for release 1.3.0.9.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.8</version>
+        <fix>
+            <item>Resolved extension-group labels that fell back to technical component identifiers when an extension stored a literal product name instead of a language key.</item>
+            <item>SP Page Builder menu entries now use the official COM_SPPAGEBUILDER language key and display the product name instead of com_sppagebuilder.</item>
+        </fix>
+        <change>
+            <item>Added a generic label-resolution sequence: declared language key, component-derived language key, safe literal product name, and technical identifier only as the final fallback.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.8.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.7</version>
+        <security>
+            <item>Kept destination validation and ACL checks unchanged while adding a conservative selector-only duplicate comparison.</item>
+            <item>Duplicate detection requires the same translated label, identical query parameters other than view and exactly one route with an explicit view.</item>
+        </security>
+        <fix>
+            <item>Removed confusing duplicate Joomla administrator destinations when a database menu route omits only the explicit default view used by the predefined catalog.</item>
+            <item>Preserved existing saved selections by mapping an equivalent historical route to the canonical predefined URL when the configuration form is opened.</item>
+        </fix>
+        <change>
+            <item>The selector keeps the explicit predefined URL and never strips functional view, extension, context, client_id, layout or identifier parameters.</item>
+            <item>Different explicit views and different extension contexts remain separate selectable destinations.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.7.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.6</version>
+        <security>
+            <item>Expanded the predefined administrator selector with the 61 destination allowlist and contextual ACL rules from the secure Alamarte 1.2.0 design.</item>
+            <item>Added server-side allowlist validation for the complete Font Awesome Free icon catalog and preserved safe legacy-icon migration.</item>
+        </security>
+        <fix>
+            <item>Replaced the link-source switcher with standard radio options for Predefined and Manual.</item>
+            <item>Restored the grouped internal-link selector organisation used in 1.2.0, including official Joomla destinations and enabled extension menu items.</item>
+            <item>Replaced the reduced icon list with the complete Font Awesome Free 6 catalog, including Solid, Regular and Brands styles.</item>
+        </fix>
+        <change>
+            <item>Bundled the Font Awesome Free webfonts and license so icon previews and custom links remain self-contained.</item>
+            <item>Synchronized version metadata, bilingual language files, documentation, update server data and integrity files.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.5</version>
+        <security>
+            <item>Added explicit source allowlisting and server-side validation for published predefined administrator destinations allowed by the current user's ACL.</item>
+            <item>Manual AJAX validation now runs only for enabled rows whose selected source is Manual; definitive validation remains on the server before saving and rendering.</item>
+        </security>
+        <fix>
+            <item>Fixed residual values in the inactive destination field affecting validation or rendering.</item>
+            <item>Fixed destination selection being inferred from which field contained a value instead of obeying an explicit source.</item>
+        </fix>
+        <addition>
+            <item>Added a Link Source selector with Predefined and Manual options to every custom link.</item>
+        </addition>
+        <change>
+            <item>Only the destination field for the selected source is displayed, validated and used; inactive values remain stored but are ignored.</item>
+            <item>Reordered the main columns as Custom Links, Content and Administration from left to right.</item>
+            <item>Migrated existing rows without data loss and synchronized bilingual help, version metadata, update server data and integrity files.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.4</version>
+        <fix>
+            <item>Fixed vertical scrolling not being recalculated reliably after the Bootstrap dropdown changed from hidden to visible.</item>
+            <item>Fixed the three main columns depending on implicit array order by enforcing Administration, Content and Custom Links explicitly.</item>
+        </fix>
+        <change>
+            <item>Each main column now receives an independent visible scrollbar only when it contains more than five links, with the height adjusted to show five complete links.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.4.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.3</version>
+        <security>
+            <item>Replaced the remaining JAMSS-sensitive URL-decoding calls with the explicit single-pass percent decoder while preserving query validation and literal plus signs.</item>
+        </security>
+        <fix>
+            <item>Removed the remaining urldecode calls reported by JAMSS pattern 17 from administrator query-name and query-value parsing.</item>
+        </fix>
+        <change>
+            <item>Reordered the main columns as Administration, Content and Custom Links from left to right.</item>
+            <item>Added independent vertical scrolling to each main column only when it contains more than five links.</item>
+            <item>Synchronized version metadata, documentation, update server data and integrity files for release 1.3.0.3.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.2</version>
+        <security>
+            <item>Restored authenticated real-time custom URL validation through Joomla com_ajax with POST, CSRF, administrator-session, ACL, verified module-instance, same-origin request and bounded-response controls.</item>
+            <item>Kept server-side validation as the definitive security boundary before saving and repeated URL and destination ACL checks before rendering.</item>
+            <item>Preserved the JAMSS-safe single-pass percent decoder and explicit ASCII control-character checks introduced in version 1.3.0.1.</item>
+        </security>
+        <fix>
+            <item>Fixed repeatable custom-link rows preventing the module from saving when the optional manual URL is empty or supplied as null by Joomla.</item>
+            <item>Fixed validation priority so a valid selected administrator menu item makes the optional manual URL irrelevant.</item>
+            <item>Fixed historical custom links without an Enabled value by treating them as enabled during migration and rendering.</item>
+            <item>Fixed administrator URL fragments being silently discarded because a multiple-argument isset check did not test forbidden URL parts independently.</item>
+            <item>Fixed literal or percent-encoded dot-segment traversal remaining accepted inside HTTP, HTTPS or administrator paths.</item>
+        </fix>
+        <addition>
+            <item>Added an independent Enabled switch to every custom link so stored rows can be shown or hidden without deleting their configuration.</item>
+            <item>Added accessible AJAX validation states with a 600 ms delay, progress indicator, valid and invalid results, timeout handling, stale-request cancellation and transport-failure guidance.</item>
+            <item>Added vertical scrolling to the custom-links column and to the administrator repeatable field when their content exceeds the available height.</item>
+        </addition>
+        <change>
+            <item>Expanded the repeatable custom-link capacity from ten to fifty stored rows while rendering only enabled and valid links.</item>
+            <item>Restored administrator menu-item priority over the manual URL and synchronized the bilingual interface, documentation, update server and integrity files.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.1</version>
+        <security>
+            <item>Preserved single-pass percent decoding and ASCII control-character rejection while replacing source patterns reported by JAMSS.</item>
+        </security>
+        <fix>
+            <item>Replaced rawurldecode with an equivalent decoder that preserves literal plus signs without triggering JAMSS pattern 17.</item>
+            <item>Replaced hexadecimal control-character regular expressions in URL and label sanitization with explicit ASCII code checks, avoiding JAMSS pattern 21 without weakening validation.</item>
+        </fix>
+        <change>
+            <item>Updated version metadata, documentation, update server data and integrity files for release 1.3.0.1.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.3.0.0</version>
+        <security>
+            <item>Added mandatory server-side validation for every custom URL in the repeatable subform and repeated validation before rendering.</item>
+            <item>Complete same-site administrator URLs are normalized safely, while unsafe schemes, credentials, malformed encoding, duplicate or array query keys and sensitive administrator parameters are rejected.</item>
+            <item>Limited administrator menu items to published entries from enabled components allowed by the current user's ACL.</item>
+            <item>Reworked installer database operations with bound parameters, transactions and rollback to prevent partial publication, assignment or parameter changes.</item>
+            <item>Added strict typing, contextual output escaping, coordinated GPL headers and refreshed MD5/SHA-256 integrity files.</item>
+        </security>
+        <fix>
+            <item>Fixed complete same-site administrator URLs being rejected instead of converted to portable administrator routes.</item>
+            <item>Fixed invalid legacy custom URLs suppressing a valid selected administrator menu item.</item>
+            <item>Fixed disabled or inaccessible components appearing in the administrator menu-item selector.</item>
+            <item>Fixed installer failures leaving partial database changes.</item>
+        </fix>
+        <change>
+            <item>Consolidated the independent 1.5.x development line as public version 1.3.0.0 without incorporating JoomlaWorks QuickMenu code.</item>
+            <item>Preserved theme selection, responsive visual presets, curated Font Awesome Free icons and up to ten custom links.</item>
+            <item>Removed the redundant About tab because it repeated the installer presentation without adding a distinct function.</item>
+            <item>Synchronized version metadata, bilingual language files, documentation, update server and integrity files.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.2.0</version>
+        <security>
+            <item>Hardened the complete custom-link flow with canonical administrator-route allowlisting, destination-specific ACL checks, portable normalization and contextual output escaping.</item>
+            <item>Manual URLs now accept only administrator routes or same-origin HTTPS addresses and reject external domains, HTTP, credentials, frontend paths, fragments, traversal, duplicate keys, array parameters and sensitive parameters.</item>
+            <item>Added mandatory server-side validation before saving and before rendering; AJAX remains an informational interface aid and is never the security boundary.</item>
+            <item>Hardened the AJAX endpoint with an authenticated administrator session, POST, Joomla CSRF token, com_modules ACL, verified module-instance context, same-origin controls, strict input and response limits, timeout handling, stale-request cancellation and response-schema validation.</item>
+            <item>Replaced dynamic scalar SQL values with bound parameters and made initial module publication and assignment transactional.</item>
+            <item>Added strict typing, safe error handling, downgrade prevention, minimum platform checks, GPL headers and MD5/SHA-256 integrity files.</item>
+        </security>
+        <fix>
+            <item>Fixed removed Joomla APIs, unsupported manifest nodes and configuration blocks that previously depended on nested fieldsets.</item>
+            <item>Fixed double-escaped internal routes, lost query parameters, global Super User detection and filtering of unpublished menu items or disabled extensions.</item>
+            <item>Fixed Auto, Light and Dark theme persistence and presentation, including active states, hover, focus, legacy preferences and Atum variable integration.</item>
+            <item>Fixed multiline custom-link titles and version coherence by reading the installed extension record with a safe local fallback.</item>
+            <item>Fixed valid same-site administrator URLs being rejected or converted into /administrator/administrator/index.php.</item>
+            <item>Fixed destination priority so Menu item link is authoritative and Add link is processed only when the selector is empty.</item>
+            <item>Removed duplicate validation feedback beside the field label and removed JAMSS false positives without weakening URL validation.</item>
+        </fix>
+        <change>
+            <item>Expanded the selector to 61 official Joomla administrator destinations grouped by functional area and combined with published menu items from enabled extensions.</item>
+            <item>Grouped Categories, Fields and Field Groups by context and removed duplicate destinations through canonical URL identity.</item>
+            <item>Added bilingual beginner-oriented help for every custom-link control, including examples, destination priority and rejected-value guidance.</item>
+            <item>Added real-time validation with a 600 ms delay, spinner while checking, green fa-check for valid addresses, red fa-times for invalid addresses and accessible feedback below the field.</item>
+            <item>Standardized visible and stored routes as administrator/index.php?... and normalized accepted variants automatically.</item>
+            <item>Fresh installations start with custom links disabled; updates preserve configuration, assignments and the existing module state.</item>
+            <item>Synchronized en-GB and es-ES, documentation, installer metadata, update server, changelog and integrity files.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.1.2</version>
+        <fix>
+            <item>Menu item link translations now load correctly from the standard Joomla .ini and .sys.ini locations.</item>
+            <item>Titles containing raw HTML are cleaned with strip_tags before display.</item>
+        </fix>
+        <change>
+            <item>The custom-link limit was reduced to five and the installer description was updated accordingly.</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_alamarte_adminmenu</element>
+        <type>module</type>
+        <version>1.1.1</version>
+        <fix>
+            <item>Menu item link now uses native HTML optgroup elements, fixing the select::optgroup error 500.</item>
+            <item>Items inside each group and extension groups themselves are sorted alphabetically.</item>
+        </fix>
+    </changelog>
+</changelogs>

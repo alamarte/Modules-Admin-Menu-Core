@@ -1,0 +1,260 @@
+/*
+ * Alamarte Admin Menu Core
+ * Version: 1.4.1
+ * GNU General Public License version 3 or later
+ * https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+.alm-icon-picker {
+    width: min(100%, 640px);
+}
+
+.alm-icon-picker__control {
+    display: flex;
+    align-items: center;
+    width: min(100%, 520px);
+    min-height: 44px;
+}
+
+.alm-icon-picker__control > * {
+    min-height: 44px;
+}
+
+.alm-icon-picker .alm-icon-picker__control > .alm-icon-picker__preview-box.btn.btn-primary {
+    box-sizing: border-box;
+    display: grid;
+    flex: 0 0 44px;
+    place-items: center;
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+.alm-icon-picker__preview,
+.alm-icon-dialog__glyph {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: #252671;
+    line-height: 1;
+}
+
+.alm-icon-picker__preview-box > .alm-icon-picker__preview {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.alm-icon-picker__preview-box > .alm-icon-picker__preview::before {
+    display: block;
+    margin: 0;
+}
+
+.alm-icon-picker__preview-box .alm-icon-picker__preview,
+.alm-icon-picker__preview-box .alm-icon-picker__preview.is-none {
+    color: #fff;
+}
+
+.alm-icon-picker__preview.is-none,
+.alm-icon-dialog__glyph.is-none {
+    color: #7b8494;
+}
+
+.alm-icon-picker__selected {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-weight: 600;
+}
+
+.alm-icon-picker__trigger {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: .9rem;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.alm-icon-dialog {
+    box-sizing: border-box;
+    width: min(94vw, 820px);
+    height: min(84vh, 680px);
+    max-height: min(84vh, 680px);
+    padding: 0;
+    overflow: hidden;
+    color: #263043;
+    background: #fff;
+    border: 1px solid #d8e2f2;
+    border-radius: .65rem;
+    box-shadow: 0 1.25rem 4rem rgb(5 15 35 / 32%);
+}
+
+.alm-icon-dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.alm-icon-dialog::backdrop {
+    background: rgb(8 17 34 / 58%);
+}
+
+.alm-icon-dialog .alm-icon-dialog__header {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    min-height: 60px;
+    padding: .5rem;
+    overflow: hidden;
+    background: #f4f6fb;
+    border-bottom: 1px solid #d8e2f2;
+}
+
+.alm-icon-dialog__header h2 {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    color: #252671;
+    font-size: 1.05rem;
+    line-height: 1.25;
+}
+
+.alm-icon-dialog .alm-icon-dialog__close {
+    all: unset;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex: 0 0 40px;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    margin: 0;
+    padding: 0;
+    color: #526177;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.alm-icon-dialog .alm-icon-dialog__close:hover,
+.alm-icon-dialog .alm-icon-dialog__close:focus-visible {
+    color: #252671;
+    background: #e7ecf6;
+    border-color: #b8c4d6;
+    outline: 0;
+}
+
+.alm-icon-dialog .alm-icon-dialog__search {
+    box-sizing: border-box;
+    display: block;
+    flex: 0 0 auto;
+    width: calc(100% - 1rem);
+    max-width: calc(100% - 1rem);
+    margin: .5rem;
+}
+
+.alm-icon-dialog .alm-icon-dialog__grid {
+    box-sizing: border-box;
+    display: grid;
+    flex: 1 1 auto;
+    grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+    gap: .45rem;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    padding: 0 .5rem .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.alm-icon-dialog__option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .38rem;
+    min-height: 94px;
+    padding: .55rem .4rem;
+    color: #252671;
+    text-align: center;
+    background: #f8f9fc;
+    border: 1px solid transparent;
+    border-radius: .4rem;
+    cursor: pointer;
+}
+
+.alm-icon-dialog__option[hidden] {
+    display: none;
+}
+
+.alm-icon-dialog__option:hover,
+.alm-icon-dialog__option:focus-visible {
+    color: #006eb8;
+    background: #eef8ff;
+    border-color: #78c9ff;
+    outline: 0;
+}
+
+.alm-icon-dialog__option[aria-selected="true"] {
+    color: #fff;
+    background: #252671;
+    border-color: #252671;
+}
+
+.alm-icon-dialog__glyph {
+    font-size: 1.3rem;
+}
+
+.alm-icon-dialog__option[aria-selected="true"] .alm-icon-dialog__glyph,
+.alm-icon-dialog__option[aria-selected="true"] .alm-icon-dialog__value {
+    color: #fff;
+}
+
+.alm-icon-dialog__label {
+    overflow-wrap: anywhere;
+    font-size: .76rem;
+    line-height: 1.15;
+}
+
+.alm-icon-dialog__value {
+    color: #6c7890;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: .62rem;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+}
+
+.alm-icon-dialog__empty {
+    margin: 0;
+    padding: 1rem;
+    color: #6c757d;
+    text-align: center;
+}
+
+@media (max-width: 575.98px) {
+    .alm-icon-dialog__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

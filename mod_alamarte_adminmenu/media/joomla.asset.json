@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_alamarte_adminmenu",
+  "version": "1.4.1",
+  "description": "Assets for Alamarte Admin Menu",
+  "license": "GPL-3.0-or-later",
+  "assets": [
+    {
+      "name": "mod_alamarte_adminmenu.fontawesome",
+      "type": "style",
+      "uri": "mod_alamarte_adminmenu/fontawesome-free.min.css",
+      "version": "1.4.1"
+    },
+    {
+      "name": "mod_alamarte_adminmenu.icons",
+      "type": "style",
+      "uri": "mod_alamarte_adminmenu/icons.css",
+      "version": "1.4.1",
+      "dependencies": [
+        "mod_alamarte_adminmenu.fontawesome"
+      ]
+    },
+    {
+      "name": "mod_alamarte_adminmenu.menu",
+      "type": "style",
+      "uri": "mod_alamarte_adminmenu/adminmenu-layout.css",
+      "version": "1.4.1",
+      "dependencies": [
+        "mod_alamarte_adminmenu.icons"
+      ]
+    },
+    {
+      "name": "mod_alamarte_adminmenu.styles",
+      "type": "script",
+      "uri": "mod_alamarte_adminmenu/adminmenu-style.js",
+      "version": "1.4.1",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "mod_alamarte_adminmenu.menu",
+      "type": "script",
+      "uri": "mod_alamarte_adminmenu/adminmenu-theme.js",
+      "version": "1.4.1",
+      "dependencies": [
+        "core",
+        "bootstrap.dropdown"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "mod_alamarte_adminmenu.language",
+      "type": "script",
+      "uri": "mod_alamarte_adminmenu/adminmenu-language.js",
+      "version": "1.4.1",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "mod_alamarte_adminmenu.iconpicker",
+      "type": "style",
+      "uri": "mod_alamarte_adminmenu/fontawesomepicker.css",
+      "version": "1.4.1",
+      "dependencies": [
+        "mod_alamarte_adminmenu.icons"
+      ]
+    },
+    {
+      "name": "mod_alamarte_adminmenu.iconpicker",
+      "type": "script",
+      "uri": "mod_alamarte_adminmenu/fontawesomepicker.js",
+      "version": "1.4.1",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "mod_alamarte_adminmenu.adminform",
+      "type": "style",
+      "uri": "mod_alamarte_adminmenu/adminmenu-adminform.css",
+      "version": "1.4.1",
+      "dependencies": [
+        "mod_alamarte_adminmenu.icons"
+      ]
+    },
+    {
+      "name": "mod_alamarte_adminmenu.adminform",
+      "type": "script",
+      "uri": "mod_alamarte_adminmenu/adminmenu-adminform.js",
+      "version": "1.4.1",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<extension type="module" client="administrator" method="upgrade">
+	<name>MOD_ALAMARTE_ADMINMENU_CORE</name>
+	<author>Alamarte Ingeniería Web</author>
+	<creationDate>2026-09-20</creationDate>
+	<copyright>Copyright (C) 2026 Alamarte Ingeniería Web. All rights reserved.</copyright>
+	<authorEmail>info@alamarte.com</authorEmail>
+	<authorUrl>https://alamarte.com</authorUrl>
+	<version>1.4.1</version>
+	<license>GNU General Public License version 3 or later</license>
+	<description>MOD_ALAMARTE_ADMINMENU_CORE_XML_DESCRIPTION</description>
+	<namespace path="src">Alamarte\Module\AdminMenu</namespace>
+	<files>
+		<folder module="mod_alamarte_adminmenu">services</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<filename>script.php</filename>
+		<filename>LICENSE.txt</filename>
+		<filename>README.md</filename>
+		<filename>CHANGELOG.txt</filename>
+		<filename>changelog.xml</filename>
+		<filename>MD5SUMS.txt</filename>
+		<filename>SHA256SUMS.txt</filename>
+	</files>
+	<media destination="mod_alamarte_adminmenu" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>webfonts</folder>
+		<filename>joomla.asset.json</filename>
+		<filename>FONT-AWESOME-LICENSE.txt</filename>
+		<filename>adminmenu-logo.png</filename>
+	</media>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/mod_alamarte_adminmenu.ini</language>
+		<language tag="en-GB">en-GB/mod_alamarte_adminmenu.sys.ini</language>
+		<language tag="es-ES">es-ES/mod_alamarte_adminmenu.ini</language>
+		<language tag="es-ES">es-ES/mod_alamarte_adminmenu.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="description" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_DESCRIPTION_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_DESCRIPTION_DESCRIPTION" addfieldprefix="Alamarte\Module\AdminMenu\Administrator\Field">
+				<field name="description_tab_integration" type="descriptiontab" hidden="true"/>
+				<field name="description_overview" type="note" label="MOD_ALAMARTE_ADMINMENU_CORE_DESCRIPTION_OVERVIEW_LABEL" description="MOD_ALAMARTE_ADMINMENU_CORE_DESCRIPTION_OVERVIEW_DESCRIPTION" class="alert alert-info"/>
+				<field name="description_features" type="note" label="MOD_ALAMARTE_ADMINMENU_DESCRIPTION_FEATURES_LABEL" description="MOD_ALAMARTE_ADMINMENU_CORE_DESCRIPTION_FEATURES_DESCRIPTION"/>
+				<field name="description_operation" type="note" label="MOD_ALAMARTE_ADMINMENU_DESCRIPTION_OPERATION_LABEL" description="MOD_ALAMARTE_ADMINMENU_CORE_DESCRIPTION_OPERATION_DESCRIPTION" class="alert alert-success"/>
+			</fieldset>
+			<fieldset name="instructions" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_INSTRUCTIONS_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_INSTRUCTIONS_DESCRIPTION">
+				<field name="instructions_first_steps" type="note" label="MOD_ALAMARTE_ADMINMENU_INSTRUCTIONS_FIRST_STEPS_LABEL" description="MOD_ALAMARTE_ADMINMENU_CORE_INSTRUCTIONS_FIRST_STEPS_DESCRIPTION" class="alert alert-info"/>
+				<field name="instructions_custom_links" type="note" label="MOD_ALAMARTE_ADMINMENU_INSTRUCTIONS_CUSTOM_LINKS_LABEL" description="MOD_ALAMARTE_ADMINMENU_CORE_INSTRUCTIONS_CUSTOM_LINKS_DESCRIPTION"/>
+				<field name="instructions_visibility" type="note" label="MOD_ALAMARTE_ADMINMENU_INSTRUCTIONS_VISIBILITY_LABEL" description="MOD_ALAMARTE_ADMINMENU_INSTRUCTIONS_VISIBILITY_DESCRIPTION" class="alert alert-warning"/>
+			</fieldset>
+			<fieldset name="theme_settings" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_THEME_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_THEME_DESCRIPTION">
+				<!-- Pro-only value is preserved in its original parameter while Core shows a disabled preview. -->
+				<field name="menu_title" type="hidden" filter="string" default=""/>
+				<field name="menu_title_pro_preview" type="text" label="MOD_ALAMARTE_ADMINMENU_CORE_MENU_TITLE_PRO" description="MOD_ALAMARTE_ADMINMENU_CORE_MENU_TITLE_PRO_DESCRIPTION" hint="MOD_ALAMARTE_ADMINMENU_MENU_TITLE_HINT" filter="string" maxlength="40" disabled="true" parentclass="alm-adminmenu-pro-only"/>
+				<field name="enable_theme_switcher" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_ENABLE_THEME_SWITCHER" description="MOD_ALAMARTE_ADMINMENU_ENABLE_THEME_SWITCHER_DESCRIPTION" default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_theme_title" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_SHOW_THEME_TITLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_THEME_TITLE_DESCRIPTION" default="1" showon="enable_theme_switcher:1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="default_theme" type="list" filter="cmd" label="MOD_ALAMARTE_ADMINMENU_DEFAULT_THEME" description="MOD_ALAMARTE_ADMINMENU_DEFAULT_THEME_DESCRIPTION" default="auto">
+					<option value="auto">MOD_ALAMARTE_ADMINMENU_THEME_AUTO</option>
+					<option value="light">MOD_ALAMARTE_ADMINMENU_THEME_LIGHT</option>
+					<option value="dark">MOD_ALAMARTE_ADMINMENU_THEME_DARK</option>
+				</field>
+				<field name="default_theme_auto_note" type="note" description="MOD_ALAMARTE_ADMINMENU_DEFAULT_THEME_AUTO_NOTE" class="alert alert-info" showon="default_theme:auto" parentclass="ms-4 ps-3 border-start"/>
+				<field name="default_theme_light_note" type="note" description="MOD_ALAMARTE_ADMINMENU_DEFAULT_THEME_LIGHT_NOTE" class="alert alert-info" showon="default_theme:light" parentclass="ms-4 ps-3 border-start"/>
+				<field name="default_theme_dark_note" type="note" description="MOD_ALAMARTE_ADMINMENU_DEFAULT_THEME_DARK_NOTE" class="alert alert-info" showon="default_theme:dark" parentclass="ms-4 ps-3 border-start"/>
+			</fieldset>
+			<fieldset name="languages" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_LANGUAGES_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_LANGUAGES_DESCRIPTION" addfieldprefix="Alamarte\Module\AdminMenu\Administrator\Field">
+				<field name="enable_backend_language_switcher" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_ENABLE_BACKEND_LANGUAGE_SWITCHER" description="MOD_ALAMARTE_ADMINMENU_ENABLE_BACKEND_LANGUAGE_SWITCHER_DESCRIPTION" default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_backend_language_title" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_SHOW_BACKEND_LANGUAGE_TITLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_BACKEND_LANGUAGE_TITLE_DESCRIPTION" default="1" showon="enable_backend_language_switcher:1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="backend_language_title" type="backendlanguagetitle" label="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_TITLE" description="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_TITLE_DESCRIPTION" hint="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_TITLE_HINT" filter="string" maxlength="40" showon="enable_backend_language_switcher:1[AND]show_backend_language_title:1"/>
+				<field name="backend_language_1" type="language" client="administrator" default="es-ES" label="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_1" description="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_1_DESCRIPTION" filter="cmd" showon="enable_backend_language_switcher:1"/>
+				<field name="backend_language_2" type="language" client="administrator" default="en-GB" label="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_2" description="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_2_DESCRIPTION" filter="cmd" showon="enable_backend_language_switcher:1"/>
+				<field name="backend_language_note" type="note" label="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_NOTE_LABEL" description="MOD_ALAMARTE_ADMINMENU_BACKEND_LANGUAGE_NOTE_DESCRIPTION" class="alert alert-info" showon="enable_backend_language_switcher:1"/>
+			</fieldset>
+			<fieldset name="styles" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_STYLES_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_STYLES_DESCRIPTION">
+				<!-- Core always renders the Joomla-based preset. Original Pro-only values remain stored for a later Core -> Pro round trip, but Core does not apply them. -->
+				<field name="style_preset" type="hidden" default="joomla" filter="cmd"/>
+				<field name="custom_icon_color" type="hidden" default="#495057" filter="string"/>
+				<field name="custom_icon_hover_color" type="hidden" default="#ffffff" filter="string"/>
+				<field name="custom_link_color" type="hidden" default="#495057" filter="string"/>
+				<field name="custom_link_hover_color" type="hidden" default="#ffffff" filter="string"/>
+				<field name="custom_link_background" type="hidden" default="#ffffff" filter="string"/>
+				<field name="custom_link_hover_background" type="hidden" default="#252671" filter="string"/>
+				<field name="custom_container_background" type="hidden" default="#ffffff" filter="string"/>
+
+				<field name="core_style_preset_pro_preview" type="list" label="MOD_ALAMARTE_ADMINMENU_CORE_STYLE_PRESET_PRO" description="MOD_ALAMARTE_ADMINMENU_CORE_STYLE_PRESET_PRO_DESCRIPTION" default="joomla" filter="cmd" disabled="true" parentclass="alm-adminmenu-pro-only">
+					<option value="joomla">MOD_ALAMARTE_ADMINMENU_STYLE_PRESET_JOOMLA</option>
+					<option value="custom">MOD_ALAMARTE_ADMINMENU_STYLE_PRESET_CUSTOM</option>
+				</field>
+				<field name="core_style_preset_info" type="note" description="MOD_ALAMARTE_ADMINMENU_CORE_STYLE_PRESET_INFO" class="alert alert-info" parentclass="ms-4 ps-3 border-start"/>
+
+				<!-- The common Pro/Core width value is retained here for edition round trips. Core edits it through the proxy below only when a supported Core width is deliberately changed. -->
+				<field name="panel_width_preset" type="hidden" default="standard" filter="cmd"/>
+				<field name="core_panel_width_preset" type="list" label="MOD_ALAMARTE_ADMINMENU_PANEL_WIDTH_PRESET" description="MOD_ALAMARTE_ADMINMENU_CORE_PANEL_WIDTH_PRESET_DESCRIPTION" default="standard" filter="cmd">
+					<option value="compact">MOD_ALAMARTE_ADMINMENU_WIDTH_COMPACT</option>
+					<option value="standard">MOD_ALAMARTE_ADMINMENU_WIDTH_STANDARD</option>
+					<option value="wide">MOD_ALAMARTE_ADMINMENU_WIDTH_WIDE</option>
+					<option value="custom">MOD_ALAMARTE_ADMINMENU_WIDTH_CUSTOM</option>
+				</field>
+				<field name="panel_width_compact_note" type="note" description="MOD_ALAMARTE_ADMINMENU_PANEL_WIDTH_COMPACT_NOTE" class="alert alert-info" showon="core_panel_width_preset:compact" parentclass="ms-4 ps-3 border-start"/>
+				<field name="panel_width_standard_note" type="note" description="MOD_ALAMARTE_ADMINMENU_PANEL_WIDTH_STANDARD_NOTE" class="alert alert-info" showon="core_panel_width_preset:standard" parentclass="ms-4 ps-3 border-start"/>
+				<field name="panel_width_wide_note" type="note" description="MOD_ALAMARTE_ADMINMENU_PANEL_WIDTH_WIDE_NOTE" class="alert alert-info" showon="core_panel_width_preset:wide" parentclass="ms-4 ps-3 border-start"/>
+				<field name="panel_width_custom_pro_note" type="note" description="MOD_ALAMARTE_ADMINMENU_CORE_PANEL_WIDTH_CUSTOM_PRO_NOTE" class="alert alert-warning" showon="core_panel_width_preset:custom" parentclass="ms-4 ps-3 border-start"/>
+				<field name="custom_panel_width" type="hidden" default="900" filter="integer"/>
+			</fieldset>
+			<fieldset name="joomla_links" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_JOOMLA_LINKS_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_JOOMLA_LINKS_DESCRIPTION" addfieldprefix="Alamarte\Module\AdminMenu\Administrator\Field">
+				<field name="reset_joomla_links_defaults" type="joomlalinkreset" label="MOD_ALAMARTE_ADMINMENU_RESET_JOOMLA_LINKS_DEFAULTS" description="MOD_ALAMARTE_ADMINMENU_RESET_JOOMLA_LINKS_DEFAULTS_DESCRIPTION" parentclass="alm-adminmenu-links-reset"/>
+				<field name="joomla_links_content_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_CONTENT_LABEL" class="alm-adminmenu-link-section-heading-note" parentclass="alm-adminmenu-links-section-heading alm-adminmenu-links-section-heading--content"/>
+				<field name="show_content_title" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTENT_TITLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTENT_TITLE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-section-toggle alm-adminmenu-links-section-toggle--content">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="joomla_links_content_publishing_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_CONTENT_PUBLISHING" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_articles" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_ARTICLES" description="MOD_ALAMARTE_ADMINMENU_SHOW_ARTICLES_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_new_article" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_NEW_ARTICLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_NEW_ARTICLE_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_featured" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_FEATURED" description="MOD_ALAMARTE_ADMINMENU_SHOW_FEATURED_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_categories" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CATEGORIES" description="MOD_ALAMARTE_ADMINMENU_SHOW_CATEGORIES_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_fields" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_FIELDS" description="MOD_ALAMARTE_ADMINMENU_SHOW_FIELDS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_field_groups" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_FIELD_GROUPS" description="MOD_ALAMARTE_ADMINMENU_SHOW_FIELD_GROUPS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_workflows" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_WORKFLOWS" description="MOD_ALAMARTE_ADMINMENU_SHOW_WORKFLOWS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="show_tags" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_TAGS" description="MOD_ALAMARTE_ADMINMENU_SHOW_TAGS_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-publishing"/>
+				<field name="joomla_links_content_navigation_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_CONTENT_NAVIGATION" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--content-navigation"/>
+				<field name="show_media" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MEDIA" description="MOD_ALAMARTE_ADMINMENU_SHOW_MEDIA_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-navigation"/>
+				<field name="show_menus" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MENUS" description="MOD_ALAMARTE_ADMINMENU_SHOW_MENUS_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-navigation"/>
+				<field name="show_menu_items" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MENU_ITEMS" description="MOD_ALAMARTE_ADMINMENU_SHOW_MENU_ITEMS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-navigation"/>
+				<field name="show_modules" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MODULES" description="MOD_ALAMARTE_ADMINMENU_SHOW_MODULES_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-navigation"/>
+				<field name="joomla_links_content_contacts_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_CONTENT_CONTACTS" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--content-contacts"/>
+				<field name="show_contacts" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACTS" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACTS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-contacts"/>
+				<field name="show_contact_categories" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACT_CATEGORIES" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACT_CATEGORIES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-contacts"/>
+				<field name="show_contact_fields" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACT_FIELDS" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACT_FIELDS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-contacts"/>
+				<field name="show_contact_field_groups" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACT_FIELD_GROUPS" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTACT_FIELD_GROUPS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-contacts"/>
+				<field name="joomla_links_content_search_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_CONTENT_SEARCH" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--content-search"/>
+				<field name="show_newsfeeds" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_NEWS_FEEDS" description="MOD_ALAMARTE_ADMINMENU_SHOW_NEWS_FEEDS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-search"/>
+				<field name="show_newsfeed_categories" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_NEWS_FEED_CATEGORIES" description="MOD_ALAMARTE_ADMINMENU_SHOW_NEWS_FEED_CATEGORIES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-search"/>
+				<field name="show_search_index" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_SEARCH_INDEX" description="MOD_ALAMARTE_ADMINMENU_SHOW_SEARCH_INDEX_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-search"/>
+				<field name="show_content_maps" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTENT_MAPS" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTENT_MAPS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-search"/>
+				<field name="show_search_filters" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_SEARCH_FILTERS" description="MOD_ALAMARTE_ADMINMENU_SHOW_SEARCH_FILTERS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-search"/>
+				<field name="show_search_terms" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_SEARCH_TERMS" description="MOD_ALAMARTE_ADMINMENU_SHOW_SEARCH_TERMS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--content-search"/>
+				<field name="joomla_links_admin_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_ADMIN_LABEL" class="alm-adminmenu-link-section-heading-note" parentclass="alm-adminmenu-links-section-heading alm-adminmenu-links-section-heading--admin"/>
+				<field name="show_admin_title" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_SHOW_ADMIN_TITLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_ADMIN_TITLE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-section-toggle alm-adminmenu-links-section-toggle--admin">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="joomla_links_admin_system_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_ADMIN_SYSTEM" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--admin-system"/>
+				<field name="show_global_config" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_GLOBAL_CONFIG" description="MOD_ALAMARTE_ADMINMENU_SHOW_GLOBAL_CONFIG_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_system_info" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_SYSTEM_INFO" description="MOD_ALAMARTE_ADMINMENU_SHOW_SYSTEM_INFO_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_user_actions_log" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_USER_ACTIONS_LOG" description="MOD_ALAMARTE_ADMINMENU_SHOW_USER_ACTIONS_LOG_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_scheduled_tasks" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_SCHEDULED_TASKS" description="MOD_ALAMARTE_ADMINMENU_SHOW_SCHEDULED_TASKS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_guided_tours" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_GUIDED_TOURS" description="MOD_ALAMARTE_ADMINMENU_SHOW_GUIDED_TOURS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_postinstall_messages" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_POSTINSTALL_MESSAGES" description="MOD_ALAMARTE_ADMINMENU_SHOW_POSTINSTALL_MESSAGES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_private_messages" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_PRIVATE_MESSAGES" description="MOD_ALAMARTE_ADMINMENU_SHOW_PRIVATE_MESSAGES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_mail_templates" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MAIL_TEMPLATES" description="MOD_ALAMARTE_ADMINMENU_SHOW_MAIL_TEMPLATES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_redirects" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_REDIRECTS" description="MOD_ALAMARTE_ADMINMENU_SHOW_REDIRECTS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_checkin" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CHECKIN" description="MOD_ALAMARTE_ADMINMENU_SHOW_CHECKIN_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="show_cache" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CACHE" description="MOD_ALAMARTE_ADMINMENU_SHOW_CACHE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-system"/>
+				<field name="joomla_links_admin_users_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_ADMIN_USERS" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--admin-users"/>
+				<field name="show_users" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_USERS" description="MOD_ALAMARTE_ADMINMENU_SHOW_USERS_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="show_user_groups" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_USER_GROUPS" description="MOD_ALAMARTE_ADMINMENU_SHOW_USER_GROUPS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="show_access_levels" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_ACCESS_LEVELS" description="MOD_ALAMARTE_ADMINMENU_SHOW_ACCESS_LEVELS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="show_user_notes" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_USER_NOTES" description="MOD_ALAMARTE_ADMINMENU_SHOW_USER_NOTES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="show_user_note_categories" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_USER_NOTE_CATEGORIES" description="MOD_ALAMARTE_ADMINMENU_SHOW_USER_NOTE_CATEGORIES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="show_privacy_requests" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_PRIVACY_REQUESTS" description="MOD_ALAMARTE_ADMINMENU_SHOW_PRIVACY_REQUESTS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="show_privacy_consents" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_PRIVACY_CONSENTS" description="MOD_ALAMARTE_ADMINMENU_SHOW_PRIVACY_CONSENTS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-users"/>
+				<field name="joomla_links_admin_languages_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_ADMIN_LANGUAGES" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--admin-languages"/>
+				<field name="show_languages" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_LANGUAGES" description="MOD_ALAMARTE_ADMINMENU_SHOW_LANGUAGES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-languages"/>
+				<field name="show_content_languages" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_CONTENT_LANGUAGES" description="MOD_ALAMARTE_ADMINMENU_SHOW_CONTENT_LANGUAGES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-languages"/>
+				<field name="show_language_overrides" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_LANGUAGE_OVERRIDES" description="MOD_ALAMARTE_ADMINMENU_SHOW_LANGUAGE_OVERRIDES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-languages"/>
+				<field name="show_multilingual_associations" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MULTILINGUAL_ASSOCIATIONS" description="MOD_ALAMARTE_ADMINMENU_SHOW_MULTILINGUAL_ASSOCIATIONS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-languages"/>
+				<field name="joomla_links_admin_presentation_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_ADMIN_PRESENTATION" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--admin-presentation"/>
+				<field name="show_modules_admin" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_MODULES_ADMIN" description="MOD_ALAMARTE_ADMINMENU_SHOW_MODULES_ADMIN_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-presentation"/>
+				<field name="show_plugins" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_PLUGINS" description="MOD_ALAMARTE_ADMINMENU_SHOW_PLUGINS_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-presentation"/>
+				<field name="show_templates" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_TEMPLATES" description="MOD_ALAMARTE_ADMINMENU_SHOW_TEMPLATES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-presentation"/>
+				<field name="show_admin_templates" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_ADMIN_TEMPLATES" description="MOD_ALAMARTE_ADMINMENU_SHOW_ADMIN_TEMPLATES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--admin-presentation"/>
+				<field name="joomla_links_extensions_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_EXTENSIONS_LABEL" class="alm-adminmenu-link-section-heading-note" parentclass="alm-adminmenu-links-section-heading alm-adminmenu-links-section-heading--extensions"/>
+				<field name="show_extensions_title" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXTENSIONS_TITLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXTENSIONS_TITLE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-section-toggle alm-adminmenu-links-section-toggle--extensions">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="joomla_links_extensions_management_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_EXTENSIONS_MANAGEMENT" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--extensions-management"/>
+				<field name="show_ext_manage" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_MANAGE" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_MANAGE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-management"/>
+				<field name="show_ext_update" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_UPDATE" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_UPDATE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-management"/>
+				<field name="show_ext_install" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_INSTALL" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_INSTALL_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-management"/>
+				<field name="show_joomla_update" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_JOOMLA_UPDATE" description="MOD_ALAMARTE_ADMINMENU_SHOW_JOOMLA_UPDATE_DESCRIPTION" default="1" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-management"/>
+				<field name="joomla_links_extensions_maintenance_heading" type="note" label="MOD_ALAMARTE_ADMINMENU_GROUP_EXTENSIONS_MAINTENANCE" class="alm-adminmenu-links-group-heading-note" parentclass="alm-adminmenu-links-group-heading alm-adminmenu-links-group--extensions-maintenance"/>
+				<field name="show_ext_discover" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_DISCOVER" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_DISCOVER_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-maintenance"/>
+				<field name="show_ext_database" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_DATABASE" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_DATABASE_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-maintenance"/>
+				<field name="show_ext_warnings" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_WARNINGS" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_WARNINGS_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-maintenance"/>
+				<field name="show_ext_install_languages" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_INSTALL_LANGUAGES" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_INSTALL_LANGUAGES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-maintenance"/>
+				<field name="show_ext_update_sites" type="joomlalinkcheckbox" filter="integer" value="1" label="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_UPDATE_SITES" description="MOD_ALAMARTE_ADMINMENU_SHOW_EXT_UPDATE_SITES_DESCRIPTION" default="0" parentclass="alm-adminmenu-links-group-item alm-adminmenu-links-group--extensions-maintenance"/>
+			</fieldset>
+			<fieldset name="custom_links_settings" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_CUSTOM_LINKS_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_CUSTOM_LINKS_DESCRIPTION" addfieldprefix="Alamarte\Module\AdminMenu\Administrator\Field">
+				<field name="enable_custom_links" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_ENABLE_CUSTOM_LINKS" description="MOD_ALAMARTE_ADMINMENU_ENABLE_CUSTOM_LINKS_DESCRIPTION" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_custom_links_title" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_SHOW_CUSTOM_LINKS_TITLE" description="MOD_ALAMARTE_ADMINMENU_SHOW_CUSTOM_LINKS_TITLE_DESCRIPTION" default="1" showon="enable_custom_links:1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="custom_links_title" type="text" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINKS_TITLE" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINKS_TITLE_DESCRIPTION" hint="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINKS_TITLE_HINT" filter="string" maxlength="80" showon="enable_custom_links:1[AND]show_custom_links_title:1"/>
+				<field name="custom_links" type="subform" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINKS" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINKS_DESCRIPTION" multiple="true" min="0" max="50" layout="joomla.form.field.subform.repeatable" validate="Subform" showon="enable_custom_links:1">
+					<form>
+						<field name="enabled" type="radio" filter="integer" layout="joomla.form.field.radio.switcher" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_ENABLED" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_ENABLED_DESCRIPTION" default="1">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+						<field name="title" type="text" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_TITLE" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_TITLE_DESCRIPTION" hint="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_TITLE_HINT" filter="string" maxlength="80" validate="adminmenutitle" addruleprefix="Alamarte\Module\AdminMenu\Administrator\Rule" showon="enabled:1"/>
+						<field name="icon" type="hidden" filter="string" default="fa-solid fa-link"/>
+						<field name="icon_pro_preview" type="fontawesomepicker" label="MOD_ALAMARTE_ADMINMENU_CORE_CUSTOM_LINK_ICON_PRO" description="MOD_ALAMARTE_ADMINMENU_CORE_CUSTOM_LINK_ICON_PRO_DESCRIPTION" default="fa-solid fa-link" filter="string" disabled="true" showon="enabled:1" parentclass="alm-adminmenu-pro-only"/>
+						<field name="source" type="radio" filter="cmd" class="alm-adminmenu-source-radio" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_SOURCE" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_SOURCE_DESCRIPTION" default="predefined" validate="adminmenusource" addruleprefix="Alamarte\Module\AdminMenu\Administrator\Rule" showon="enabled:1">
+							<option value="predefined">MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_SOURCE_PREDEFINED</option>
+							<option value="manual">MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_SOURCE_MANUAL</option>
+						</field>
+						<field name="url" type="adminmenulink" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_MENU_ITEM" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_MENU_ITEM_DESCRIPTION" filter="string" validate="adminmenudestination" addruleprefix="Alamarte\Module\AdminMenu\Administrator\Rule" showon="enabled:1[AND]source:predefined"/>
+						<field name="custom_url" type="text" label="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_URL" description="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_URL_DESCRIPTION" hint="MOD_ALAMARTE_ADMINMENU_CUSTOM_LINK_URL_HINT" filter="raw" maxlength="2048" validate="adminmenuurl" addruleprefix="Alamarte\Module\AdminMenu\Administrator\Rule" showon="enabled:1[AND]source:manual"/>
+						<field name="target" type="hidden" filter="cmd" default="_self"/>
+						<field name="target_pro_preview" type="list" label="MOD_ALAMARTE_ADMINMENU_CORE_CUSTOM_LINK_TARGET_PRO" description="MOD_ALAMARTE_ADMINMENU_CORE_CUSTOM_LINK_TARGET_PRO_DESCRIPTION" default="_self" filter="cmd" disabled="true" showon="enabled:1" parentclass="alm-adminmenu-pro-only">
+							<option value="_self">MOD_ALAMARTE_ADMINMENU_TARGET_SELF</option>
+							<option value="_blank">MOD_ALAMARTE_ADMINMENU_TARGET_BLANK</option>
+						</field>
+					</form>
+				</field>
+			</fieldset>
+			<fieldset name="about" label="MOD_ALAMARTE_ADMINMENU_FIELDSET_ABOUT_LABEL" description="MOD_ALAMARTE_ADMINMENU_FIELDSET_ABOUT_DESCRIPTION">
+				<field name="about_installer_description" type="note" description="MOD_ALAMARTE_ADMINMENU_CORE_ABOUT_INSTALLER_DESCRIPTION"/>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" name="Alamarte Admin Menu Core Updates">https://alamarte.com/updates/modules/adminmenu/core/manifest.xml</server>
+	</updateservers>
+	<changelogurl>https://alamarte.com/updates/modules/adminmenu/core/changelog.xml</changelogurl>
+	<scriptfile>script.php</scriptfile>
+</extension>
